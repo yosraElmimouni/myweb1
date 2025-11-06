@@ -12,7 +12,7 @@ Ceci est une application web PHP moderne, construite avec le micro-framework **S
 
 | Fichier/Dossier | Description |
 | :--- | :--- |
-| `public/` | Racine du document web. Contient `index.php` et `.htaccess`. |
+| `index.php` | Point d'entrée de l'application. |
 | `templates/` | Contient les fichiers de template Twig (`.html.twig`). |
 | `vendor/` | Dépendances Composer (générées après `composer install`). |
 | `composer.json` | Définit les dépendances du projet. |
@@ -43,7 +43,7 @@ Azure App Service pour Linux est la méthode recommandée pour les applications 
             ```bash
             composer install --no-dev --optimize-autoloader && /usr/sbin/apache2ctl -D FOREGROUND
             ```
-        *   Définissez la **Racine du document** (Virtual Path) sur `/public`.
+        *   La racine du document est maintenant la racine du dépôt (`/home/site/wwwroot`). Aucune configuration de chemin virtuel n'est nécessaire.
 
 3.  **Déploiement du Code** :
     *   **Option 1 : Déploiement Zip (Recommandé)**
@@ -73,6 +73,6 @@ Les variables d'environnement définies dans le fichier `.env` local doivent êt
     ```
 2.  **Démarrage du serveur** :
     ```bash
-    php -S localhost:8000 -t public
+    php -S localhost:8000
     ```
 3.  Accédez à `http://localhost:8000` dans votre navigateur.

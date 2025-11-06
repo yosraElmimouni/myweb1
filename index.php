@@ -6,17 +6,17 @@ use Slim\Factory\AppFactory;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // Charger les variables d'environnement
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
 // Créer l'application Slim
 $app = AppFactory::create();
 
 // Configuration de Twig
-$loader = new FilesystemLoader(__DIR__ . '/../templates');
+$loader = new FilesystemLoader(__DIR__ . '/templates');
 $twig = new Environment($loader);
 
 // Middleware pour la gestion des erreurs (utile pour le développement)
